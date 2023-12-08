@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 
 interface NavbarProps {
-  currentUser?: SafeUser | null;
+  currentUser?: any | null;
   restaurant?: string | null;
 }
 
