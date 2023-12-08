@@ -57,9 +57,9 @@ function LoginForm() {
             }
 
             const session = await getSession();
-            const restaurant = session?.restaurant_id;
-            const table_number = session?.table_number;
-            const token = session?.user?.accessToken;
+            const restaurant = session?.restaurant_id || "";
+            const table_number = session?.table_number || "";
+            const token = session?.user?.accessToken || "";
 
             setCookie(null, "restaurant", restaurant);
             setCookie(null, "verification_code", table_number);
