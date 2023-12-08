@@ -11,9 +11,9 @@ declare module 'next-auth' {
     }
     interface User {
         user_id: string;
-        username: username;
+        username: string;
         token: string;
-        restaurant_id: restaurant_id;
-        restaurant_name: restaurant_name;
+        restaurant_id: string;
+        restaurant_name: string;
     }
 }
