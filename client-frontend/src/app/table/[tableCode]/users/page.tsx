@@ -32,7 +32,7 @@ export default function UsersPage() {
     const getFetchUsers = async () => {
       try {
         const user_session = await getSession();
-        const accessToken = user_session.user.accessToken || "";
+        const accessToken = user_session?.user?.accessToken || "";
         const res = await getAllUsers(accessToken);
         const { error } = res;
 
