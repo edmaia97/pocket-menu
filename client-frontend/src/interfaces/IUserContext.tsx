@@ -1,6 +1,6 @@
 export default interface IUserContext {
     username: string;
-    setUsername: () => {};
+    setUsername: React.Dispatch<string>;
     token: string;
-    setToken: () => {};
+    setToken: React.Dispatch<string>;
 }
