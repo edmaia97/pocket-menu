@@ -6,7 +6,6 @@ import Navbar from "@/components/Table/navbar/Navbar";
 import TableHeader from "@/components/Table/TableHeader";
 import TableNavbar from "@/components/Table/TableNavbar";
 import { ModalProvider } from "@/contexts/modal";
-import TableProvider from "@/contexts/TableContext";
 import Providers from "@/redux/providers";
 
 // import "../../globals.css";
@@ -22,17 +21,15 @@ export default async function TableLayout({
 
   return (
     <Providers>
-        <TableProvider>
-          <ModalProvider>
-            {/* <TableHeader /> */}
-            <LogoutModal currentUser={currentUser} />
-            <Navbar currentUser={currentUser} restaurant={restaurant} />
-            <div className="pb-20 pt-28">
-              {children}
-            </div>
-            <TableNavbar />
-          </ModalProvider>
-        </TableProvider>
+      <ModalProvider>
+        {/* <TableHeader /> */}
+        <LogoutModal currentUser={currentUser} />
+        <Navbar currentUser={currentUser} restaurant={restaurant} />
+        <div className="pb-20 pt-28">
+          {children}
+        </div>
+        <TableNavbar />
+      </ModalProvider>
     </Providers>
   );
 }
