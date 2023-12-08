@@ -27,11 +27,11 @@ declare module 'next-auth' {
 }
 declare module 'next-auth/jwt' {
     interface JWT {
-        user_id?: string;
-        username?: string;
-        token?: string;
-        restaurant_id?: string;
-        restaurant_name?: string;
-        table_number?: string;
+        user_id: string;
+        username: string;
+        token: string;
+        restaurant_id: string;
+        restaurant_name: string;
+        table_number: string;
     }
 }
