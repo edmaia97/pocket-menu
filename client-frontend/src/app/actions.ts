@@ -26,6 +26,7 @@ export async function anonLogin(username:string, verification_code:string|null) 
 }
 
 export async function exitTable(token:string) {
+    console.log(`${backendURL}/table/member/`)
     const res = await fetch(`${backendURL}/table/member/`, {
         method: 'DELETE',
         headers: { "Authorization" : `Bearer ${token}` }

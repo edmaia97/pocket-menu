@@ -32,8 +32,9 @@ function LoginForm() {
             });
             // const { error } = res;
 
-            if (res?.error) {               
-                throw new Error(error);
+            if (res?.error) {   
+	console.log(res?.error)            
+                throw new Error(res?.error);
             } else if (res?.status === 200) {
                 toast('Welcome back!', {
                     position: "bottom-right",

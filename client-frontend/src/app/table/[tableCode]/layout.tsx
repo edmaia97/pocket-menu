@@ -3,10 +3,9 @@ import { getServerSession } from "next-auth/next";
 
 import LogoutModal from "@/components/modals/LogoutModal";
 import Navbar from "@/components/Table/navbar/Navbar";
-import TableHeader from "@/components/Table/TableHeader";
+// import TableHeader from "@/components/Table/TableHeader";
 import TableNavbar from "@/components/Table/TableNavbar";
 import { ModalProvider } from "@/contexts/modal";
-import Providers from "@/redux/providers";
 
 // import "../../globals.css";
 
@@ -20,7 +19,6 @@ export default async function TableLayout({
   const restaurant = session?.restaurant_name;
 
   return (
-    <Providers>
       <ModalProvider>
         {/* <TableHeader /> */}
         <LogoutModal currentUser={currentUser} />
@@ -30,6 +28,5 @@ export default async function TableLayout({
         </div>
         <TableNavbar />
       </ModalProvider>
-    </Providers>
   );
 }
