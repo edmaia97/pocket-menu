@@ -1,22 +1,9 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { ClipLoader } from 'react-spinners'
-import { sendOrder } from "@/app/actions";
-import Cookies from 'js-cookie';
+interface SummaryProps {
+  totalPrice: any;
+  totalQuantity: any;
+}
 
-
-function Summary({totalPrice, totalQuantity}) {
-    const cart = useSelector((state:any) => state.cart)
-    const [isLoading, setIsLoading] = useState(false);
-    const token = Cookies.get("token") || "";
-
-    const handleCheckout = async (token:string) => {
-        setIsLoading(true)
-        console.log("sending POST request to the backend (?) to order");
-        const response = await sendOrder(token, cart)
-        console.log(response);
-        setIsLoading(false)
-    }
+const Summary: React.FC<SummaryProps> = ({totalPrice, totalQuantity}) => {
 
     return (
         <>

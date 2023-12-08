@@ -1,8 +1,14 @@
 import { AuthOptions } from "next-auth/core/types";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { JWT } from "next-auth/jwt";
 
-export const backendURL = process.env.SERVER_URL;
+
+// export const backendURL = process.env.SERVER_URL;
+// TODO: make the .env work
+// IMPORTANT: no trailing / at backendURL
+export const backendURL = "http://54.146.254.132";
+// export const backendURL = process.env.REACT_APP_SERVER_URL;
 
 export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
@@ -17,9 +23,9 @@ export const authOptions: AuthOptions = {
         CredentialsProvider({
             type: "credentials",
             credentials: {
-                password: { 
-                    label: "Verification Code", 
-                    type: "text" 
+                password: {
+                    label: "Verification Code",
+                    type: "text"
                 },
                 username: {
                     label: "Username",
@@ -27,7 +33,7 @@ export const authOptions: AuthOptions = {
                 },
             },
             async authorize(credentials) {
-                const resp = await fetch(backendURL + "table/member/", {
+                const resp = await fetch(backendURL + "/table/member/", {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
@@ -47,11 +53,11 @@ export const authOptions: AuthOptions = {
         }),
     ],
     callbacks: {
-        jwt: ({ token, user }) => {
+        jwt: async ({ token, user }): Promise<JWT> => {
             if (user) {
                 token.user_id = user.user_id;
                 token.username = user.username;
-                token.accessToken = user.token;
+                token.token = user.token;
                 token.restaurant_id = user.restaurant_id;
                 token.restaurant_name = user.restaurant_name;
                 token.table_number = user.table_number;
@@ -59,11 +65,11 @@ export const authOptions: AuthOptions = {
 
             return token;
         },
-        session: ({ session, token, user }) => {
-            if (token) {
+        session: async ({ session, token }) => {
+            if (session?.user) {
                 session.user.id = token.user_id;
                 session.user.name = token.username;
-                session.user.accessToken = token.accessToken;
+                session.user.accessToken = token.token;
                 session.restaurant_id = token.restaurant_id;
                 session.restaurant_name = token.restaurant_name;
                 session.table_number = token.table_number;

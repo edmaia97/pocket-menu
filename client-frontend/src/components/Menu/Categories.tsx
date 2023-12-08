@@ -2,7 +2,12 @@
 
 import React, { useState } from 'react';
 
-const Categories = ({ categories, filterItems }) => {
+interface CategoriesProps {
+  categories: any;
+  filterItems: any;
+}
+
+const Categories: React.FC<CategoriesProps> = ({ categories, filterItems }) => {
   let [currentCategory, setCurrentCategory] = useState(0);
 
   const handleCategoryClick = (categoryIndex:any, category:any) => {

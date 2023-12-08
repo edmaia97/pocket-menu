@@ -28,14 +28,7 @@ export default function UserProvider({
     const [token, setToken] = useCookieState('token', '');
 
     return (
-        <UserContext.Provider
-            value={{
-                username,
-                setUsername,
-                token,
-                setToken,
-            }}
-        >
+        <UserContext.Provider value={{ username, setUsername, token, setToken }} >
             {children}
         </UserContext.Provider>
     );

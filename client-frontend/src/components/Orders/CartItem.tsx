@@ -1,10 +1,6 @@
-// import { incrementQuantity, decrementQuantity, removeItem} from '@/redux/features/cart-slice'
-// import { useDispatch } from 'react-redux'
-
 function CartItem(
     {title, price, quantity=0}:{title:any, price:any, quantity:number}
 ) {
-//   const dispatch = useDispatch()
 
   return (
     <>

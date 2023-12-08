@@ -30,9 +30,9 @@ function LoginForm() {
                 username: name,
                 password: table,
             });
-            const { error } = res;
+            // const { error } = res;
 
-            if (error) {               
+            if (res?.error) {               
                 throw new Error(error);
             } else if (res?.status === 200) {
                 toast('Welcome back!', {
@@ -57,15 +57,17 @@ function LoginForm() {
             }
 
             const session = await getSession();
-            const restaurant = session?.restaurant_id;
-            const table_number = session?.table_number;
-            const token = session?.user?.accessToken;
+            const restaurant = session?.restaurant_id || "";
+            const table_number = session?.table_number || "";
+            const token = session?.user?.accessToken || "";
 
             setCookie(null, "restaurant", restaurant);
             setCookie(null, "verification_code", table_number);
+            setCookie(null, "username", name);
+            setCookie(null, "token", token);
 
-            name && setUsername(name);
-            token && setToken(token);
+            // name && setUsername(name);
+            // token && setToken(token);
             
             router.push(`/table/${table_number}/users`);
         } catch (err: any) {
