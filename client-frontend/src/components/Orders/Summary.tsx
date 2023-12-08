@@ -9,7 +9,7 @@ interface SummaryProps {
   totalQuantity: any;
 }
 
-const Summary: React.FC<SummaryProps> = ({totalPrice, totalQuantity}) {
+const Summary: React.FC<SummaryProps> = ({totalPrice, totalQuantity}) => {
     // const cart = useSelector((state:any) => state.cart)
     // const [isLoading, setIsLoading] = useState(false);
     // const token = Cookies.get("token") || "";
