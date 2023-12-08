@@ -1,6 +1,7 @@
 import { AuthOptions } from "next-auth/core/types";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import JWT from "next-auth/jwt"
 
 
 // export const backendURL = process.env.SERVER_URL;
@@ -52,7 +53,7 @@ export const authOptions: AuthOptions = {
         }),
     ],
     callbacks: {
-        jwt: async ({ token, user }) => {
+        jwt: async ({ token, user }): Promise<JWT> => {
             if (user) {
                 token.user_id = user.user_id;
                 token.username = user.username;
