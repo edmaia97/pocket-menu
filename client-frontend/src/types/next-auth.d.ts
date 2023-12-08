@@ -9,4 +9,7 @@ declare module 'next-auth' {
         restaurant_name: string | null,
         table_number: string | null,
     }
+    interface User {
+        user_id: string;
+    }
 }
