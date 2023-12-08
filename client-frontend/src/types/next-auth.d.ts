@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import type { DefaultSession } from 'next-auth';
+import JWT from "next-auth/jwt"
 
 declare module 'next-auth' {
     /**
@@ -16,6 +17,16 @@ declare module 'next-auth' {
         table_number: string | null,
     }
     interface User {
+        user_id: string;
+        username: string;
+        token: string;
+        restaurant_id: string;
+        restaurant_name: string;
+        table_number: string;
+    }
+}
+declare module 'next-auth/jwt' {
+    interface JWT {
         user_id: string;
         username: string;
         token: string;
