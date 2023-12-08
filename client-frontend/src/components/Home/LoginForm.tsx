@@ -30,9 +30,9 @@ function LoginForm() {
                 username: name,
                 password: table,
             });
-            const { error } = res;
+            // const { error } = res;
 
-            if (error) {               
+            if (res?.error) {               
                 throw new Error(error);
             } else if (res?.status === 200) {
                 toast('Welcome back!', {
