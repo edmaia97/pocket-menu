@@ -12,7 +12,7 @@ import MenuItem from "./MenuItem";
 import Avatar from "@/components/Avatar";
 
 interface UserMenuProps {
-  currentUser?: SafeUser | null
+  currentUser?: any
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({
