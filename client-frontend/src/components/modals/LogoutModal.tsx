@@ -12,10 +12,9 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import Button from "../Button";
 import { toast } from "react-toastify";
-import { SafeUser } from "@/types/user";
 
 interface LogoutProps {
-  currentUser?: SafeUser | null;
+  currentUser?: any | null;
 }
 
 const LogoutModal: React.FC<LogoutProps> = ({
