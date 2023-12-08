@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 interface CategoriesProps {
   categories: any;
-  filterItems: () => void;
+  filterItems: any;
 }
 
 const Categories: React.FC<CategoriesProps> = ({ categories, filterItems }) => {
