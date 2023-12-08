@@ -52,7 +52,7 @@ export const authOptions: AuthOptions = {
         }),
     ],
     callbacks: {
-        jwt: ({ token, user }) => {
+        jwt: async ({ token, user }) => {
             if (user) {
                 token.user_id = user.user_id;
                 token.username = user.username;
@@ -64,8 +64,8 @@ export const authOptions: AuthOptions = {
 
             return token;
         },
-        session: ({ session, token, user }) => {
-            if (token) {
+        session: async ({ session, token }) => {
+            if (session?.user) {
                 session.user.id = token.user_id;
                 session.user.name = token.username;
                 session.user.accessToken = token.accessToken;
