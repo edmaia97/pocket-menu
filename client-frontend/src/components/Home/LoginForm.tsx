@@ -63,9 +63,11 @@ function LoginForm() {
 
             setCookie(null, "restaurant", restaurant);
             setCookie(null, "verification_code", table_number);
+            setCookie(null, "username", name);
+            setCookie(null, "token", token);
 
-            name && setUsername(name);
-            token && setToken(token);
+            // name && setUsername(name);
+            // token && setToken(token);
             
             router.push(`/table/${table_number}/users`);
         } catch (err: any) {
