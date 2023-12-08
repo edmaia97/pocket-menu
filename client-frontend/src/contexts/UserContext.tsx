@@ -30,9 +30,9 @@ export default function UserProvider({
     return (
         <UserContext.Provider
             value={{
-                username,
+                username as string,
                 setUsername,
-                token,
+                token as string,
                 setToken,
             }}
         >
