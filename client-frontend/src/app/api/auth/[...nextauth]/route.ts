@@ -67,12 +67,12 @@ export const authOptions: AuthOptions = {
         },
         session: async ({ session, token }) => {
             if (session?.user) {
-                session.user.id = token?.user_id;
-                session.user.name = token?.username;
-                session.user.accessToken = token?.accessToken;
-                session.restaurant_id = token?.restaurant_id;
-                session.restaurant_name = token?.restaurant_name;
-                session.table_number = token?.table_number;
+                session.user.id = token.user_id;
+                session.user.name = token.username;
+                session.user.accessToken = token.accessToken;
+                session.restaurant_id = token.restaurant_id;
+                session.restaurant_name = token.restaurant_name;
+                session.table_number = token.table_number;
             }
             return session;
         },
