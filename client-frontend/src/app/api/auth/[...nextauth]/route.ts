@@ -1,7 +1,7 @@
 import { AuthOptions } from "next-auth/core/types";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import JWT from "next-auth/jwt"
+import { JWT } from "next-auth/jwt";
 
 
 // export const backendURL = process.env.SERVER_URL;
