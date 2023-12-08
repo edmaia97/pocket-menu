@@ -15,5 +15,6 @@ declare module 'next-auth' {
         token: string;
         restaurant_id: string;
         restaurant_name: string;
+        table_number: string;
     }
 }
