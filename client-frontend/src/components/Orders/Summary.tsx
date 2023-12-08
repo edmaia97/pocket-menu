@@ -4,6 +4,10 @@ import { ClipLoader } from 'react-spinners'
 import { sendOrder } from "@/app/actions";
 import Cookies from 'js-cookie';
 
+interface SummaryProps {
+  totalPrice: any;
+  totalQuantity: any;
+}
 
 function Summary({totalPrice, totalQuantity}) {
     const cart = useSelector((state:any) => state.cart)
