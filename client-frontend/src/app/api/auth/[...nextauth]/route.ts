@@ -57,7 +57,7 @@ export const authOptions: AuthOptions = {
             if (user) {
                 token.user_id = user.user_id;
                 token.username = user.username;
-                token.accessToken = user.token;
+                token.token = user.token;
                 token.restaurant_id = user.restaurant_id;
                 token.restaurant_name = user.restaurant_name;
                 token.table_number = user.table_number;
@@ -69,7 +69,7 @@ export const authOptions: AuthOptions = {
             if (session?.user) {
                 session.user.id = token.user_id;
                 session.user.name = token.username;
-                session.user.accessToken = token.accessToken;
+                session.user.accessToken = token.token;
                 session.restaurant_id = token.restaurant_id;
                 session.restaurant_name = token.restaurant_name;
                 session.table_number = token.table_number;
